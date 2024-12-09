@@ -5,7 +5,7 @@ import { AppProviders } from '@/components/providers'
 import { AppSidebar } from '@/components/layout/Sidebar'
 import { AppHeader } from '@/components/layout/AppHeader'
 
-const font = Inter()
+const font = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Portal V2',
