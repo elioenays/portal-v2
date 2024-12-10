@@ -1,3 +1,4 @@
+import { TogleTheme } from '../TogleTheme'
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import { SidebarTrigger } from '../ui/sidebar'
 
@@ -8,6 +9,8 @@ export function AppHeader() {
         <SidebarTrigger title="Abrir menu" />
         Faculdade
       </div>
+
+      <TogleTheme />
 
       <div className="items-center gap-3 hidden">
         <span>ELIOENAY RODRIGUES DA SILVA</span>
