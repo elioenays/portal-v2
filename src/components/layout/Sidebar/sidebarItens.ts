@@ -30,7 +30,7 @@ export type SidebarItemType = {
 export const sidebarItens: SidebarItemType[] = [
   {
     title: 'Mural',
-    url: '#',
+    url: '/',
     icon: Monitor,
     collapsible: false,
   },
