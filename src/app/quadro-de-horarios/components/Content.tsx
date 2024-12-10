@@ -3,7 +3,7 @@ import { Select, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { ClassCard, ClassType } from '../components/ClassCard'
 import { WeekDayColumn } from '../components/WeekDayColumn'
 
-const weekDays = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sabado']
+const weekDays = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']
 
 const mondayClasses: ClassType[] = []
 
@@ -112,7 +112,7 @@ export function QuadroDeHorariosContent() {
 
           <div>
             <div className="gap-3 flex flex-col">
-              <span className="hidden max-xl:block font-medium">Sabado</span>
+              <span className="hidden max-xl:block font-medium">Sábado</span>
 
               {saturdayClasses &&
                 saturdayClasses.map((saturdayClass) => (
