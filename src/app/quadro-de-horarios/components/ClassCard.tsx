@@ -5,14 +5,15 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 
-export function ClassCard() {
+export type ClassType = { name: string; teacher: string }
+
+export function ClassCard({ matter }: { matter: ClassType }) {
   return (
-    <Card>
+    <Card className="bg-muted">
       <CardHeader>
-        <CardTitle>Estatistica</CardTitle>
-        <CardDescription className="text-xs">
-          29/07/2024 - 14/12/2024
-        </CardDescription>
+        <CardTitle>{matter.name}</CardTitle>
+
+        <CardDescription className="text-xs">{matter.teacher}</CardDescription>
       </CardHeader>
     </Card>
   )
