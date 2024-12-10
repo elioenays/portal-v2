@@ -35,43 +35,49 @@ export function QuadroDeHorariosContent() {
   return (
     <div className="flex flex-col gap-3">
       <div className="flex gap-3 items-center">
-        <span>Quadro de Horário</span>
+        <span className="font-medium">Quadro de Horário</span>
 
         <Select>
-          <SelectTrigger className="w-[180px]">
+          <SelectTrigger className="w-[180px]" title="Período letivo">
             <SelectValue placeholder="2024/2" />
           </SelectTrigger>
         </Select>
       </div>
 
       <Card>
-        <div className="grid grid-cols-6 px-6 font-medium mb-1">
+        <div className="grid grid-cols-6 px-6 mb-1 max-xl:hidden gap-3">
           {weekDays.map((day) => (
             <WeekDayColumn day={day} key={day} />
           ))}
         </div>
 
-        <CardContent className="grid grid-cols-6">
-          <div className="max-w-60">
-            <CardContent className="gap-3 flex flex-col">
+        <CardContent className="grid grid-cols-6 max-xl:flex max-xl:flex-col gap-3">
+          <div>
+            <div className="gap-3 flex flex-col">
+              <span className="hidden max-xl:block font-medium">Segunda</span>
+
               {mondayClasses &&
                 mondayClasses.map((mondayClass) => (
                   <ClassCard matter={mondayClass} key={mondayClass.name} />
                 ))}
-            </CardContent>
+            </div>
           </div>
 
-          <div className="max-w-60">
-            <CardContent className="gap-3 flex flex-col">
+          <div>
+            <div className="gap-3 flex flex-col">
+              <span className="hidden max-xl:block font-medium">Terça</span>
+
               {tuesdayClasses &&
                 tuesdayClasses.map((tuesdayClass) => (
                   <ClassCard matter={tuesdayClass} key={tuesdayClass.name} />
                 ))}
-            </CardContent>
+            </div>
           </div>
 
-          <div className="max-w-60">
-            <CardContent className="gap-3 flex flex-col">
+          <div>
+            <div className="gap-3 flex flex-col">
+              <span className="hidden max-xl:block font-medium">Quarta</span>
+
               {wednesdayClasses &&
                 wednesdayClasses.map((wednesdayClass) => (
                   <ClassCard
@@ -79,34 +85,40 @@ export function QuadroDeHorariosContent() {
                     key={wednesdayClass.name}
                   />
                 ))}
-            </CardContent>
+            </div>
           </div>
 
-          <div className="max-w-60">
-            <CardContent className="gap-3 flex flex-col">
+          <div>
+            <div className="gap-3 flex flex-col">
+              <span className="hidden max-xl:block font-medium">Quinta</span>
+
               {thursdayClasses &&
                 thursdayClasses.map((thursdayClass) => (
                   <ClassCard matter={thursdayClass} key={thursdayClass.name} />
                 ))}
-            </CardContent>
+            </div>
           </div>
 
-          <div className="max-w-60">
-            <CardContent className="gap-3 flex flex-col">
+          <div>
+            <div className="gap-3 flex flex-col">
+              <span className="hidden max-xl:block font-medium">Sexta</span>
+
               {fridayClasses &&
                 fridayClasses.map((fridayClass) => (
                   <ClassCard matter={fridayClass} key={fridayClass.name} />
                 ))}
-            </CardContent>
+            </div>
           </div>
 
-          <div className="max-w-60">
-            <CardContent className="gap-3 flex flex-col">
+          <div>
+            <div className="gap-3 flex flex-col">
+              <span className="hidden max-xl:block font-medium">Sabado</span>
+
               {saturdayClasses &&
                 saturdayClasses.map((saturdayClass) => (
                   <ClassCard matter={saturdayClass} key={saturdayClass.name} />
                 ))}
-            </CardContent>
+            </div>
           </div>
         </CardContent>
       </Card>
