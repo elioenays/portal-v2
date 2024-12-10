@@ -1,18 +1,5 @@
-import {
-  ChevronDown,
-  Clipboard,
-  Clock,
-  GraduationCap,
-  Grid2X2,
-  Handshake,
-  Lightbulb,
-  Link,
-  MessageCircle,
-  Monitor,
-  Receipt,
-  Rocket,
-  UserPlus,
-} from 'lucide-react'
+'use client'
+
 import {
   Sidebar,
   SidebarContent,
@@ -36,121 +23,9 @@ import {
 import { CourseSwitcher } from './CourseSwitcher'
 import { Fragment } from 'react'
 import { UserMenu } from './UserMenu'
-
-const sidebarItens = [
-  {
-    title: 'Mural',
-    url: '#',
-    icon: Monitor,
-    collapsible: false,
-  },
-  {
-    title: 'Grade Curricular',
-    url: '#',
-    icon: Grid2X2,
-    collapsible: false,
-  },
-  {
-    title: 'Quadro de Horários',
-    url: '#',
-    icon: Clock,
-    collapsible: false,
-  },
-  {
-    title: 'Matrícula online',
-    url: '#',
-    icon: UserPlus,
-    collapsible: false,
-  },
-  {
-    title: 'Central do Aluno',
-    url: '#',
-    icon: GraduationCap,
-    collapsible: true,
-    subitens: [
-      {
-        title: 'Faltas',
-        url: '#',
-      },
-      {
-        title: 'Notas',
-        url: '#',
-      },
-    ],
-  },
-  {
-    title: 'Relatórios de Outros',
-    url: '#',
-    icon: Link,
-    collapsible: true,
-    subitens: [
-      {
-        title: 'TCC',
-        url: '#',
-      },
-      {
-        title: 'AVA',
-        url: '#',
-      },
-      {
-        title: 'Geração do Boleto',
-        url: '#',
-      },
-      {
-        title: 'Relatórios VBI',
-        url: '#',
-      },
-    ],
-  },
-  {
-    title: 'Secretaria',
-    url: '#',
-    icon: Clipboard,
-    collapsible: true,
-    subitens: [
-      {
-        title: 'Solicitações',
-        url: '#',
-      },
-    ],
-  },
-  {
-    title: 'Oportunidades',
-    url: '#',
-    icon: Lightbulb,
-    collapsible: true,
-    subitens: [
-      {
-        title: 'Atividades Curriculares',
-        url: '#',
-      },
-    ],
-  },
-  {
-    title: 'Financeiro',
-    url: '#',
-    icon: Receipt,
-    collapsible: false,
-  },
-  {
-    title: 'Negociação on-line',
-    url: '#',
-    icon: Handshake,
-    collapsible: false,
-  },
-  {
-    title: 'Avaliação Institucional',
-    url: '#',
-    icon: MessageCircle,
-    collapsible: false,
-  },
-  {
-    title: 'Acelerador de carreiras',
-    url: '#',
-    icon: Rocket,
-    collapsible: false,
-  },
-]
+import { SidebarItem } from './SidebarItem'
+import { sidebarItens } from './sidebarItens'
+import { ChevronDown } from 'lucide-react'
 
 export function AppSidebar() {
   return (
@@ -166,20 +41,10 @@ export function AppSidebar() {
               {sidebarItens.map((item) => {
                 return (
                   <Fragment key={item.title}>
-                    {!item.collapsible && (
-                      <SidebarMenuItem title={item.title}>
-                        <SidebarMenuButton asChild>
-                          <NextLink href={item.url}>
-                            <item.icon />
-
-                            <span>{item.title}</span>
-                          </NextLink>
-                        </SidebarMenuButton>
-                      </SidebarMenuItem>
-                    )}
+                    {!item.collapsible && <SidebarItem item={item} />}
 
                     {item.collapsible && (
-                      <Collapsible defaultOpen className="group/collapsible">
+                      <Collapsible className="group/collapsible">
                         <SidebarMenuItem key={item.title} title={item.title}>
                           <CollapsibleTrigger asChild>
                             <SidebarMenuButton>
