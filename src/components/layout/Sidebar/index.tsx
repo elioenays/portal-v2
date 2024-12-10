@@ -44,7 +44,7 @@ export function AppSidebar() {
                     {!item.collapsible && <SidebarItem item={item} />}
 
                     {item.collapsible && (
-                      <Collapsible defaultOpen className="group/collapsible">
+                      <Collapsible className="group/collapsible">
                         <SidebarMenuItem key={item.title} title={item.title}>
                           <CollapsibleTrigger asChild>
                             <SidebarMenuButton>
