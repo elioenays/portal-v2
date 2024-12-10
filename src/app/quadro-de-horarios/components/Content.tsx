@@ -18,7 +18,9 @@ const wednesdayClasses: ClassType[] = [
   },
 ]
 
-const thursdayClasses: ClassType[] = []
+const thursdayClasses: ClassType[] = [
+  { name: 'Estágio', teacher: 'Professor 4' },
+]
 
 const fridayClasses: ClassType[] = []
 
