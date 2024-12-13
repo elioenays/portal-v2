@@ -36,7 +36,7 @@ export const sidebarItens: SidebarItemType[] = [
   },
   {
     title: 'Grade Curricular',
-    url: '#',
+    url: 'grade-curricular',
     icon: Grid2X2,
     collapsible: false,
   },
