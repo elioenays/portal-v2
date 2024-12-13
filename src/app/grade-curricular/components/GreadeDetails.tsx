@@ -1,7 +1,7 @@
 export function GreadeDetails() {
   return (
     <div className="flex justify-between items-end font-light text-xs">
-      <div>
+      <div className="flex flex-col gap-1">
         <div>
           <span>Habilitação: </span>
           <span className="font-bold">Bacharelado</span>
@@ -25,7 +25,7 @@ export function GreadeDetails() {
         </div>
       </div>
 
-      <div>
+      <div className="flex flex-col gap-1">
         <div>
           <span>Situação: </span>
           <span className="font-bold">Matriculado</span>
@@ -37,7 +37,7 @@ export function GreadeDetails() {
         </div>
       </div>
 
-      <div>
+      <div className="flex flex-col gap-1">
         <div>
           <span>Turno: </span>
           <span className="font-bold">NOTURNO</span>

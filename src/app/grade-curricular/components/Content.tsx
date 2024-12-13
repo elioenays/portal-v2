@@ -14,7 +14,7 @@ export function GradeCurricularContent() {
           <GreadeDetails />
 
           <div className="flex gap-3">
-            <ClassStatus code={1} name="Concluida" status="concluida" />
+            <ClassStatus code={1} name="Concluída" status="concluida" />
             <ClassStatus code={1} name="Pendente" status="pendente" />
             <ClassStatus code={1} name="Não Concluída" status="naoConcluida" />
             <ClassStatus code={1} name="Equivalente" />
