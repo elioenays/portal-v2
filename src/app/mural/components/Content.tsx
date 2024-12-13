@@ -9,25 +9,7 @@ import {
 
 import Autoplay from 'embla-carousel-autoplay'
 import Image from 'next/image'
-
-const carouselItens = [
-  {
-    url: 'https://plus.unsplash.com/premium_photo-1733921555760-b905f7eb213d',
-    name: 'Planet volumes',
-  },
-  {
-    url: 'https://images.unsplash.com/photo-1733398378174-a8f3b1559451',
-    name: 'Pascal Debruner',
-  },
-  {
-    url: 'https://images.unsplash.com/photo-1733714954006-04558605f822',
-    name: 'Bundo kim',
-  },
-  {
-    url: 'https://images.unsplash.com/photo-1721332149267-ef9b10eaacd9',
-    name: 'Samsung Memory',
-  },
-]
+import { carouselItens } from './carouselItens'
 
 export function MuralContent() {
   return (
@@ -44,8 +26,10 @@ export function MuralContent() {
                 <Image
                   src={carouselItem.url}
                   alt={carouselItem.name}
-                  width={520}
-                  height={480}
+                  width={0}
+                  height={0}
+                  sizes="100svh"
+                  className="w-full h-[calc(100svh-100px)] object-contain"
                 />
               </CarouselItem>
             ))}
