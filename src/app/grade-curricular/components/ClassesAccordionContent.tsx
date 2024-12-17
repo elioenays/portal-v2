@@ -3,7 +3,6 @@ import {
   Table,
   TableBody,
   TableCell,
-  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
@@ -76,14 +75,6 @@ export function ClassesAccordionContent({
             </TableRow>
           ))}
         </TableBody>
-
-        <TableFooter>
-          <TableRow>
-            <TableCell colSpan={10} className="text-end">
-              Total CH integralizada: 320
-            </TableCell>
-          </TableRow>
-        </TableFooter>
       </Table>
     </AccordionContent>
   )
