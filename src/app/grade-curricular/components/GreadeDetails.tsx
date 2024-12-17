@@ -1,6 +1,6 @@
 export function GreadeDetails() {
   return (
-    <div className="flex justify-between items-end font-light text-xs">
+    <div className="flex justify-between items-end font-light text-xs flex-wrap">
       <div className="flex flex-col gap-1">
         <div>
           <span>Habilitação: </span>

@@ -25,7 +25,7 @@ export function ClassesFilter() {
     <>
       <ToggleGroup
         type="single"
-        className="self-start"
+        className="self-start flex-wrap"
         defaultValue="0"
         onValueChange={(value) => value && setFilterByStatus(Number(value))}
       >
@@ -40,7 +40,7 @@ export function ClassesFilter() {
 
       <ToggleGroup
         type="single"
-        className="self-start"
+        className="self-start flex-wrap"
         defaultValue="todas"
         onValueChange={(value) => value && setFilterByCategory(value)}
       >
