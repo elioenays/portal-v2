@@ -1,5 +1,10 @@
 import { GradeCurricularContent } from './components/Content'
+import { FilterProvider } from './providers/FilterClassesByStatusProvider'
 
 export default function GradeCurricularPage() {
-  return <GradeCurricularContent />
+  return (
+    <FilterProvider>
+      <GradeCurricularContent />
+    </FilterProvider>
+  )
 }

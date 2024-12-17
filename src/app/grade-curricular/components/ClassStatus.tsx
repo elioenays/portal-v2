@@ -5,18 +5,18 @@ const container = tv({
   base: '',
   variants: {
     status: {
-      concluida: 'bg-green-500',
-      pendente: 'bg-red-500',
-      naoConcluida: 'bg-yellow-500',
-      default: '',
+      1: 'bg-green-500',
+      2: 'bg-red-500',
+      3: 'bg-yellow-500',
+      4: '',
     },
   },
-  defaultVariants: { status: 'default' },
+  defaultVariants: { status: 4 },
 })
 
-type ClassStatusProps = React.ComponentProps<'div'> &
+export type ClassStatusProps = React.ComponentProps<'div'> &
   VariantProps<typeof container> & {
-    name: string
+    name?: string
     code: number
   }
 

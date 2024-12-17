@@ -1,50 +1,37 @@
+'use client'
+
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { GreadeDetails } from './GreadeDetails'
-import { ClassStatus } from './ClassStatus'
-import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
+import { ClassStatus, ClassStatusProps } from './ClassStatus'
 import {
   Accordion,
-  AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
-import { Separator } from '@/components/ui/separator'
+import { ClassesAccordionContent } from './ClassesAccordionContent'
+import { classes } from './classes'
+import { useMemo } from 'react'
+import { ClassesFilter } from './Filter'
+import { useFilter } from '../providers/FilterClassesByStatusProvider'
 
-type ClassStatuses = {
-  status?: 'concluida' | 'pendente' | 'naoConcluida' | 'default'
-  code: number
-  name: string
+const classStatuses = {
+  Concluída: 1,
+  Pendente: 2,
+  'Não Concluída': 3,
+  Equivalente: 4,
 }
 
-const classStatuses: ClassStatuses[] = [
-  { code: 1, name: 'Concluída', status: 'concluida' },
-  { code: 2, name: 'Pendente', status: 'pendente' },
-  { code: 3, name: 'Não Concluída', status: 'naoConcluida' },
-  { code: 4, name: 'Equivalente', status: 'default' },
-]
-
-const classCategories = [
-  { name: 'Todas', value: 'todas' },
-  { name: 'Disciplina Obrigatórias', value: 'disciplina-obrigatorias' },
-  {
-    name: 'Disciplinas Eletivas/Optativas',
-    value: 'disciplinas-eletivas-optativas',
-  },
-  {
-    name: 'Disciplinas Equivalentes',
-    value: 'disciplinas-equivalentes',
-  },
-  {
-    name: 'Componentes Curriculares',
-    value: 'componentes-curriculares',
-  },
-  {
-    name: 'Disciplinas Extras',
-    value: 'disciplinas-extras',
-  },
-]
-
 export function GradeCurricularContent() {
+  const { filterByCategory } = useFilter()
+
+  const periodsFiltered = useMemo(() => {
+    if (filterByCategory === 'todas') {
+      return classes
+    }
+
+    return classes.filter((classe) => classe.categoria === filterByCategory)
+  }, [filterByCategory])
+
   return (
     <Card>
       <CardHeader>
@@ -56,46 +43,17 @@ export function GradeCurricularContent() {
           <GreadeDetails />
 
           <div className="flex gap-3">
-            {classStatuses.map((classStatus) => (
+            {Object.entries(classStatuses).map(([key, value]) => (
               <ClassStatus
-                key={classStatus.name}
-                code={classStatus.code}
-                name={classStatus.name}
-                status={classStatus.status}
+                key={key}
+                code={value}
+                name={key}
+                status={value as ClassStatusProps['status']}
               />
             ))}
           </div>
 
-          <ToggleGroup
-            type="single"
-            className="self-start"
-            defaultValue="todas"
-          >
-            <ToggleGroupItem value="todas">Todas</ToggleGroupItem>
-
-            <ToggleGroupItem value="em-curso">Em curso</ToggleGroupItem>
-
-            <ToggleGroupItem value="pendentes">Pendentes</ToggleGroupItem>
-
-            <ToggleGroupItem value="concluidos">Concluídos</ToggleGroupItem>
-          </ToggleGroup>
-
-          <Separator />
-
-          <ToggleGroup
-            type="single"
-            className="self-start"
-            defaultValue="todas"
-          >
-            {classCategories.map((classCategory) => (
-              <ToggleGroupItem
-                value={classCategory.value}
-                key={classCategory.name}
-              >
-                {classCategory.name}
-              </ToggleGroupItem>
-            ))}
-          </ToggleGroup>
+          <ClassesFilter />
 
           <Accordion
             type="single"
@@ -103,14 +61,11 @@ export function GradeCurricularContent() {
             className="w-full"
             defaultValue="todas"
           >
-            {classCategories.map((classCategory) => (
-              <AccordionItem
-                value={classCategory.value}
-                key={classCategory.name}
-              >
-                <AccordionTrigger>{classCategory.name}</AccordionTrigger>
+            {periodsFiltered.map((classe) => (
+              <AccordionItem value={classe.nome} key={classe.id}>
+                <AccordionTrigger>{classe.nome}</AccordionTrigger>
 
-                <AccordionContent></AccordionContent>
+                <ClassesAccordionContent classes={classe.classes} />
               </AccordionItem>
             ))}
           </Accordion>
