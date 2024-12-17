@@ -45,6 +45,7 @@ export function ClassesFilter() {
 
       <Select
         onValueChange={(value) => value && setFilterByStatus(Number(value))}
+        defaultValue="0"
       >
         <SelectTrigger className="max-sm:flex hidden">
           <SelectValue placeholder="Filtro por status" />
@@ -74,7 +75,10 @@ export function ClassesFilter() {
         ))}
       </ToggleGroup>
 
-      <Select onValueChange={(value) => value && setFilterByCategory(value)}>
+      <Select
+        onValueChange={(value) => value && setFilterByCategory(value)}
+        defaultValue="todas"
+      >
         <SelectTrigger className="max-sm:flex hidden">
           <SelectValue placeholder="Filtro por categoria" />
         </SelectTrigger>
