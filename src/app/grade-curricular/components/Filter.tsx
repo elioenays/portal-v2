@@ -1,6 +1,13 @@
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
 import { useFilter } from '../providers/FilterClassesByStatusProvider'
 import { Separator } from '@/components/ui/separator'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 
 const classCategories = {
   todas: 'Todas',
@@ -25,7 +32,7 @@ export function ClassesFilter() {
     <>
       <ToggleGroup
         type="single"
-        className="self-start flex-wrap"
+        className="self-start flex-wrap max-sm:hidden"
         defaultValue="0"
         onValueChange={(value) => value && setFilterByStatus(Number(value))}
       >
@@ -36,11 +43,27 @@ export function ClassesFilter() {
         ))}
       </ToggleGroup>
 
+      <Select
+        onValueChange={(value) => value && setFilterByStatus(Number(value))}
+      >
+        <SelectTrigger className="max-sm:flex hidden">
+          <SelectValue placeholder="Filtro por status" />
+        </SelectTrigger>
+
+        <SelectContent>
+          {Object.entries(classStatus).map(([key, value]) => (
+            <SelectItem value={key} key={key}>
+              {value}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
+
       <Separator />
 
       <ToggleGroup
         type="single"
-        className="self-start flex-wrap"
+        className="self-start flex-wrap max-sm:hidden"
         defaultValue="todas"
         onValueChange={(value) => value && setFilterByCategory(value)}
       >
@@ -50,6 +73,20 @@ export function ClassesFilter() {
           </ToggleGroupItem>
         ))}
       </ToggleGroup>
+
+      <Select onValueChange={(value) => value && setFilterByCategory(value)}>
+        <SelectTrigger className="max-sm:flex hidden">
+          <SelectValue placeholder="Filtro por categoria" />
+        </SelectTrigger>
+
+        <SelectContent>
+          {Object.entries(classCategories).map(([key, value]) => (
+            <SelectItem key={key} value={key}>
+              {value}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
     </>
   )
 }
