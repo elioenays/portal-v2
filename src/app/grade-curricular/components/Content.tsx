@@ -8,7 +8,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
-import { ClassesAccordionContent } from './ClassesAccordionContent'
+import { ClassesContent } from './ClassesContent'
 import { classes } from './classes'
 import { useMemo } from 'react'
 import { ClassesFilter } from './Filter'
@@ -65,7 +65,7 @@ export function GradeCurricularContent() {
               <AccordionItem value={classe.nome} key={classe.id}>
                 <AccordionTrigger>{classe.nome}</AccordionTrigger>
 
-                <ClassesAccordionContent classes={classe.classes} />
+                <ClassesContent classes={classe.classes} />
               </AccordionItem>
             ))}
           </Accordion>
