@@ -61,7 +61,11 @@ export function AppSidebar() {
                                 {item.subitens.map((subitem) => (
                                   <SidebarMenuSubItem key={subitem.title}>
                                     <SidebarMenuSubButton asChild>
-                                      <NextLink href={subitem.url}>
+                                      <NextLink
+                                        href={subitem.url}
+                                        data-disabled={subitem.disabled}
+                                        className="data-[disabled=true]:opacity-50 data-[disabled=true]:pointer-events-none"
+                                      >
                                         <span>{subitem.title}</span>
                                       </NextLink>
                                     </SidebarMenuSubButton>
