@@ -12,11 +12,7 @@ import { ClassStatus, ClassStatusProps } from './ClassStatus'
 import { useFilter } from '../providers/FilterClassesByStatusProvider'
 import { useMemo } from 'react'
 
-export function ClassesAccordionContent({
-  classes: classe,
-}: {
-  classes: Classe[]
-}) {
+export function ClassesContent({ classes: classe }: { classes: Classe[] }) {
   const { filterByStatus } = useFilter()
 
   const classesFiltered = useMemo(() => {
